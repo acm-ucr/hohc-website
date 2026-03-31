@@ -1,4 +1,4 @@
-# Hands On Healthcare Website
+# Hands On Health Care Website
 
 ![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23407ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -13,11 +13,11 @@
 
 ## Figma
 
-[Hands On Healthcare Figma Design File](https://www.figma.com/design/pwH8wChMSkvdmPz7PDxKzX/Winter--26-HOHC?t=R0J7tFmBjI7yU7JY-1)
+[Hands On Health Care Figma Design File](https://www.figma.com/design/pwH8wChMSkvdmPz7PDxKzX/Winter--26-HOHC?t=R0J7tFmBjI7yU7JY-1)
 
 ## Node.js
 
-ACM UCR Website Template runs on Node.js Version 20.10.0 and higher. Please ensure you have Node.js installed via the [official website](https://nodejs.org/en).
+Hands On Health Care Website runs on Node.js Version 20.10.0 and higher. Please ensure you have Node.js installed via the [official website](https://nodejs.org/en).
 
 ## Next.js
 
