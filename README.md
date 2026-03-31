@@ -1,4 +1,4 @@
-# ACM UCR Website Template
+# Hands On Healthcare Website
 
 ![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23407ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -13,7 +13,7 @@
 
 ## Figma
 
-[ACM UCR Website Template Figma Design File](https://www.figma.com/)
+[Hands On Healthcare Figma Design File](https://www.figma.com/design/pwH8wChMSkvdmPz7PDxKzX/Winter--26-HOHC?t=R0J7tFmBjI7yU7JY-1)
 
 ## Node.js
 
