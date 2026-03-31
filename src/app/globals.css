@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+    --color-hohc-blue-100: #d9e5f8;
+    --color-hohc-blue-200: #b2c5d4;
+    --color-hohc-blue-300: #9dc1dd;
+    --color-hohc-blue-400: #9eb7e0;
+    --color-hohc-blue-500: #647da6;
+    --color-hohc-blue-600: #3e6e92;
+    --color-hohc-blue-700: #0c3374;
+
+    --color-hohc-yellow: #ffffe2;
+
+    --color-hohc-grey: #b9bbbd;
+}
