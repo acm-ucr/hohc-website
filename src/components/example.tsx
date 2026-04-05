@@ -9,7 +9,7 @@ const Example = (props: { text1: string; text2: string; text3: string }) => {
         </div>
       </div>
 
-      <div className="bg-hohc-blue-100 w-1/2 p-5">props.text3</div>
+      <div className="bg-hohc-blue-100 w-1/2 p-5">{props.text3}</div>
     </div>
   );
 };
