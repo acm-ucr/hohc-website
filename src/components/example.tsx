@@ -4,7 +4,7 @@ const Example = (props: { text1: string; text2: string; text3: string }) => {
       <div className="bg-hohc-blue-100 w-1/2 p-5 text-left">{props.text1}</div>
 
       <div className="flex w-1/2 flex-row gap-1">
-        <div className="bg-hohc-blue-200 w-full p-5 text-left">
+        <div className="bg-hohc-blue-100 w-full p-5 text-left">
           {props.text2}
         </div>
       </div>
