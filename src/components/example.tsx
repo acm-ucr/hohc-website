@@ -1,6 +1,6 @@
 const Example = (props: { text1: string; text2: string; text3: string }) => {
   return (
-    <div className="bg-hohc-blue-500 w-2/3 flex flex-col items-center gap-1 justify-self-center rounded-xl p-8">
+    <div className="bg-hohc-blue-500 flex w-2/3 flex-col items-center gap-1 justify-self-center rounded-xl p-8">
       <div className="bg-hohc-yellow-100 mb-5 w-1/2 p-5 text-center">
         {props.text1}
       </div>
@@ -14,7 +14,7 @@ const Example = (props: { text1: string; text2: string; text3: string }) => {
         </div>
       </div>
 
-      <div className="bg-hohc-blue-700 w-1/2 mt-5 p-5 text-center text-white">
+      <div className="bg-hohc-blue-700 mt-5 w-1/2 p-5 text-center text-white">
         {props.text3}
       </div>
     </div>
