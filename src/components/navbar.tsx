@@ -12,10 +12,8 @@ const Navbar = () => {
         <Link href="/">
           <Image src={HOHCLogo} alt="HOHC Logo" className="size-18" />
         </Link>
-        <p className="font-hohc-kanit ml-5 text-4xl font-semibold text-white">
-          HOHC
-        </p>
-        <div className="mt-1 mr-7 flex w-full flex-row justify-end gap-7 text-2xl font-semibold text-white">
+        <p className="font-hohc-kanit ml-5 text-4xl text-white">HOHC</p>
+        <div className="mt-1 mr-7 flex w-full flex-row justify-end gap-7 text-2xl text-white">
           {navbarLinks.map(({ link, name }) => (
             <Link key={link} href={link}>
               {name}
