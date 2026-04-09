@@ -16,8 +16,8 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="en">
       <body className="font-hohc-kanit">
         <ReactQueryClientProvider>
-        <Navbar />
-        {children}
+          <Navbar />
+          {children}
         </ReactQueryClientProvider>
       </body>
     </html>
