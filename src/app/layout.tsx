@@ -1,5 +1,6 @@
 import "./globals.css";
 import { ReactQueryClientProvider } from "@/utils/react-query";
+import Navbar from "@/components/navbar";
 
 export const metadata = {
   title: "Hands On Health Care Website",
@@ -14,7 +15,10 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className="font-hohc-kanit">
-        <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
+        <ReactQueryClientProvider>
+          <Navbar />
+          {children}
+        </ReactQueryClientProvider>
       </body>
     </html>
   );
