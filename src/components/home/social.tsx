@@ -9,8 +9,8 @@ interface Props {
 const Social = ({ title, link, icon }: Props) => {
   return (
     <div className="flex flex-row">
-      <div className="bg-hohc-blue-500 flex h-10 w-10 items-center justify-center self-center rounded-full">
-        <Image src={icon} alt={title} width={25} height={25} />
+      <div className=" flex items-center justify-center self-center rounded-full">
+        <Image src={icon} alt={title} width={50} height={50} />
       </div>
 
       <div className="border-hohc-blue-500 flex flex-col rounded-lg">
