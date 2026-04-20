@@ -1,21 +1,14 @@
 import aubg from "@/public/about-us-bg.svg";
 import Image from "next/image";
 
-// interface AboutUsProps {
-//   textBlock1 : string;
-//   textBlock2 : string;
-//   textBlock3 : string;
-// }
-//{textBlock1, textBlock2, textBlock3}: AboutUsProps
-
 const AboutUs = () => {
   return (
-    <div className="mt-50 w-full">
-      <div className="absolute mt-15">
+    <div className="relative mt-50 w-full">
+      <div className="absolute top-[6%] mt-15 flex flex-col gap-5">
         <div className="text-hohc-blue-700 ml-15 text-7xl font-bold">
           <p>About Us</p>
         </div>
-        <div className="mx-25 mt-10 flex-col gap-10 text-4xl">
+        <div className="mx-25 flex-col gap-10 text-4xl">
           <p>
             Hands On Health Care (HOHC) aims to connect pre-health undergraduate
             students at UCR with opportunities and programs for hands-on
@@ -37,9 +30,7 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <div>
-        <Image src={aubg} alt="HOHC Logo" />
-      </div>
+      <Image src={aubg} alt="HOHC Logo" className="z-10 w-full" />
     </div>
   );
 };
