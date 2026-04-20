@@ -4,9 +4,9 @@ import PillIcon from "@/public/pill-icon.svg";
 
 const Home = () => {
   return (
-  <div>
-    <Header icon1={CrossIcon} icon2={PillIcon} title="Our Mission"/>
-  </div>
+    <div>
+      <Header icon1={CrossIcon} icon2={PillIcon} title="Our Mission" />
+    </div>
   );
 };
 
