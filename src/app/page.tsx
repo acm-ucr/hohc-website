@@ -1,10 +1,12 @@
-import Example from "@/components/example";
+import Header from "@/components/header";
+import CrossIcon from "@/public/cross-icon.svg";
+import PillIcon from "@/public/pill-icon.svg";
 
 const Home = () => {
   return (
-    <div className="flex h-screen w-screen items-center justify-center">
-      <Example text1="Adjust" text2="Click" text3="Props" />
-    </div>
+  <div>
+    <Header icon1={CrossIcon} icon2={PillIcon} title="Our Mission"/>
+  </div>
   );
 };
 
