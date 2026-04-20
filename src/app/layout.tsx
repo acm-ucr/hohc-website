@@ -3,9 +3,6 @@ import { ReactQueryClientProvider } from "@/utils/react-query";
 import Footer from "../components/footer";
 import Navbar from "@/components/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
-
-
 export const metadata = {
   title: "Hands On Health Care Website",
   description: "Hands On Health Care",
