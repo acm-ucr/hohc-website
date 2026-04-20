@@ -1,9 +1,10 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import { ReactQueryClientProvider } from "@/utils/react-query";
 import Footer from "../components/footer";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata = {
   title: "Hands On Health Care Website",
@@ -17,8 +18,9 @@ type LayoutProps = {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="font-hohc-kanit">
         <ReactQueryClientProvider>
+          <Navbar />
           {children}
           <Footer />
         </ReactQueryClientProvider>
