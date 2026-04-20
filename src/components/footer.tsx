@@ -1,39 +1,33 @@
 import Image from "next/image";
-import { HOHC_LINKS } from "../data/LinksData";
 import Link from "next/link";
+import { FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="bg-hohc-blue-600 flex h-1" />
-      <div className="bg-hohc-blue-700 relative px-5 py-3">
-        <div className="flex items-center gap-3">
-          <Link href="/">
-            <Image
-              src="/image 3_layerstyle.svg"
-              alt="HOHC Logo"
-              width={52}
-              height={52}
-              className="h-auto w-13"
-              priority
-            />
-          </Link>
-          <span className="text-xl text-white">HOHC</span>
-        </div>
-        <p className="text-md text-white/85">Hands on Health Care</p>
-        <p className="text-md text-white/85">At UCR</p>
+    <div className="bg-hohc-blue-700 border-hohc-blue-600 relative border-t-[4px] px-5 py-3">
+      <div className="flex items-center gap-3">
+        <Link href="/">
+          <Image
+            src="/Logo.svg"
+            alt="HOHC Logo"
+            width={32}
+            height={32}
+            className="h-full w-full"
+            priority
+          />
+        </Link>
+        <span className="text-3xl text-white">HOHC</span>
+      </div>
+      <p className="text-lg text-white">Hands on Health Care</p>
+      <p className="text-lg text-white">At UCR</p>
 
-        <div className="absolute right-5 bottom-3">
-          <Link href={HOHC_LINKS.instagram} target="_blank">
-            <Image
-              src="/Linkbox/Vector.svg"
-              alt="Instagram"
-              width={32}
-              height={32}
-              className="h-8 w-8"
-            />
-          </Link>
-        </div>
+      <div className="absolute right-5 bottom-3">
+        <Link
+          href={"https://www.instagram.com/handsonhealthcare_ucr"}
+          target="_blank"
+        >
+          <FaInstagram className="h-14 w-14 text-white" />
+        </Link>
       </div>
     </div>
   );
