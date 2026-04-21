@@ -1,6 +1,14 @@
 import "./globals.css";
 import { ReactQueryClientProvider } from "@/utils/react-query";
+import Footer from "../components/footer";
 import Navbar from "@/components/navbar";
+import { Kanit } from "next/font/google";
+
+const kanit = Kanit({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-hohc-kanit",
+});
 
 export const metadata = {
   title: "Hands On Health Care Website",
@@ -14,10 +22,11 @@ type LayoutProps = {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <body className="font-hohc-kanit">
+      <body className={`${kanit.variable}`}>
         <ReactQueryClientProvider>
           <Navbar />
           {children}
+          <Footer />
         </ReactQueryClientProvider>
       </body>
     </html>
