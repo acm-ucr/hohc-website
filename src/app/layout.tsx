@@ -1,5 +1,6 @@
 import "./globals.css";
 import { ReactQueryClientProvider } from "@/utils/react-query";
+import Footer from "../components/footer";
 import Navbar from "@/components/navbar";
 import { Kanit } from "next/font/google";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps) {
         <ReactQueryClientProvider>
           <Navbar />
           {children}
+          <Footer />
         </ReactQueryClientProvider>
       </body>
     </html>
