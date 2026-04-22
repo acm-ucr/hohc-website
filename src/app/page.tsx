@@ -1,4 +1,3 @@
-
 import Landing from "../components/home/landing";
 import Header from "@/components/header";
 import CrossIcon from "@/public/cross-icon.svg";
@@ -10,7 +9,7 @@ const Home = () => {
     <div>
       <Landing />
       <Header icon1={CrossIcon} icon2={PillIcon} title="Our Mission" />
-      <AboutUs />    
+      <AboutUs />
     </div>
   );
 };
