@@ -1,11 +1,11 @@
 import Header from "@/components/header";
-import HeartIcon from "@/public/heart-icon.svg";
+import StarIcon from "@/public/star-icon.svg";
 import CrossIcon from "@/public/cross-icon.svg";
 
 const Page = () => {
   return (
     <div>
-      <Header icon1={HeartIcon} icon2={CrossIcon} title="Event Calendar" />
+      <Header icon1={StarIcon} icon2={CrossIcon} title="Clinics" />
       page
     </div>
   );
