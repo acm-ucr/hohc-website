@@ -1,7 +1,10 @@
 import "./globals.css";
 import { ReactQueryClientProvider } from "@/utils/react-query";
 import Navbar from "@/components/navbar";
-import { Kanit } from "next/font/google";
+import { Kanit, Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const kanit = Kanit({
   subsets: ["latin"],
@@ -20,7 +23,7 @@ type LayoutProps = {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <body className={`${kanit.variable}`}>
         <ReactQueryClientProvider>
           <Navbar />
