@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaInstagram } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6"; // Was causing problems with npm run dev when I ran it, so I commented it out only when I was testing.
 
 const Footer = () => {
   return (
