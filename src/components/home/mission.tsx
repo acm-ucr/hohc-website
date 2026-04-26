@@ -1,6 +1,3 @@
-import Header from "@/components/header";
-import CrossIcon from "@/public/cross-icon.svg";
-import PillIcon from "@/public/pill-icon.svg";
 import StarBackground from "@/public/star-background.svg";
 import StarBackground2 from "@/public/star-background-2.svg";
 import Image from "next/image";
@@ -8,8 +5,6 @@ import Image from "next/image";
 const Mission = () => {
   return (
     <div className="flex flex-col">
-      <Header icon1={CrossIcon} icon2={PillIcon} title="Our Mission" />
-
       <div className="flex items-center py-16">
         <Image
           src={StarBackground}
