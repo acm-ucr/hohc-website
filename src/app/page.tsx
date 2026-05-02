@@ -1,5 +1,6 @@
 import Landing from "../components/home/landing";
 import Mission from "@/components/home/mission";
+import FollowUs from "../components/home/followUs";
 import AboutUs from "@/components/aboutus";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Landing />
       <Mission />
       <AboutUs />
+      <FollowUs />
     </div>
   );
 };
