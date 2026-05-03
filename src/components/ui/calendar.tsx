@@ -13,7 +13,6 @@ import { Button, buttonVariants } from "@/components/ui/button"
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
 
 function Calendar({
-  className,
   classNames,
   showOutsideDays = true,
   captionLayout = "label",
@@ -30,12 +29,6 @@ function Calendar({
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn(
-        "group/calendar bg-background [--cell-radius:var(--radius-md)] [--cell-size:--spacing(7)] in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent",
-        String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
-        String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
-        className
-      )}
       captionLayout="label"
       locale={locale}
       formatters={{
@@ -72,10 +65,9 @@ function Calendar({
           "font-black select-none ",
           captionLayout === "label"
             ? "text-sm"
-            : "flex items-center gap-1 font-hohc-kanit text-hohc-blue-700  text-4xl",
+            : "flex items-center gap-1 font-hohc-kanit text-hohc-blue-700 text-4xl",
           defaultClassNames.caption_label
         ),
-        table: "w-full border-collapse",
         weekdays: cn("flex", defaultClassNames.weekdays),
         weekday: cn(
           "flex-1 font-bold text-black pt-4 pb-8 text-lg select-none",
@@ -92,22 +84,10 @@ function Calendar({
         ),
         day: cn(
           "group/day relative aspect-square border-1 border-hohc-grey-300 h-24 w-24 text-center select-none ",
-          props.showWeekNumber
-            ? "[&:nth-child(2)[data-selected=true]_button]:rounded-l-(--cell-radius)"
-            : "[&:first-child[data-selected=true]_button]:rounded-l-(--cell-radius)",
           defaultClassNames.day
         ),
-        range_start: cn(
-          "relative isolate z-0 rounded-l-(--cell-radius) bg-muted after:absolute after:inset-y-0 after:right-0 after:w-4 after:bg-muted",
-          defaultClassNames.range_start
-        ),
-        range_middle: cn("rounded-none", defaultClassNames.range_middle),
-        range_end: cn(
-          "relative isolate z-0 rounded-r-(--cell-radius) bg-muted after:absolute after:inset-y-0 after:left-0 after:w-4 after:bg-muted",
-          defaultClassNames.range_end
-        ),
         today: cn(
-          " bg-muted text-foreground data-[selected=true]:rounded-none",
+          " bg-muted text-foreground",
           defaultClassNames.today
         ),
         outside: cn(
@@ -155,7 +135,7 @@ function Calendar({
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>
-              <div className="flex size-(--cell-size) items-center justify-center text-center">
+              <div className="flex items-center justify-center text-center">
                 {children}
               </div>
             </td>
@@ -187,14 +167,8 @@ function CalendarDayButton({
       variant="ghost"
       data-day={day.date.toLocaleDateString(locale?.code)}
       data-selected-single={
-        modifiers.selected &&
-        !modifiers.range_start &&
-        !modifiers.range_end &&
-        !modifiers.range_middle
+        modifiers.selected
       }
-      data-range-start={modifiers.range_start}
-      data-range-end={modifiers.range_end}
-      data-range-middle={modifiers.range_middle}
       className={cn(
         "relative isolate z-10 flex h-full w-full flex-col gap-1 p-1 justify-start items-end leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-[3px] group-data-[focused=true]/day:ring-ring/50 data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-end=true]:bg-hohc-blue-700 data-[range-end=true]:text-primary-foreground data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) data-[range-start=true]:bg-hohc-blue-700 data-[range-start=true]:text-primary-foreground data-[selected-single=true]:bg-hohc-blue-700 data-[selected-single=true]:text-primary-foreground dark:hover:text-foreground [&>span]:text-xs [&>span]:opacity-70",
         defaultClassNames.day,
