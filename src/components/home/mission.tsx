@@ -13,13 +13,13 @@ const Mission = () => {
       <div className="relative">
         <Image
           src={StarBackground}
-          alt="Star Background"
-          className="-translate-x--1/3 absolute top-0 left-0 w-[520px] -translate-y-1/4 opacity-80"
+          alt=""
+          className="-translate-x--1/3 absolute top-0 left-0 w-1/3 -translate-y-1/4 opacity-80"
         />
         <Image
           src={StarBackground2}
-          alt="Star Background"
-          className="absolute top-0 right-0 w-[520px] translate-y-1/3"
+          alt=""
+          className="absolute top-0 right-0 w-1/3 translate-y-1/3"
         />
       </div>
       <div className="flex items-center justify-center py-16">
