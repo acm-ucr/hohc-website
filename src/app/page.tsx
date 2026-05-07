@@ -1,9 +1,15 @@
-import Example from "@/components/example";
+import Landing from "../components/home/landing";
+import Mission from "@/components/home/mission";
+import FollowUs from "../components/home/followUs";
+import AboutUs from "@/components/aboutus";
 
 const Home = () => {
   return (
-    <div className="flex h-screen w-screen items-center justify-center">
-      <Example text1="Adjust" text2="These" text3="Props" />
+    <div>
+      <Landing />
+      <Mission />
+      <AboutUs />
+      <FollowUs />
     </div>
   );
 };

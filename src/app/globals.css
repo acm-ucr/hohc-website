@@ -13,15 +13,18 @@
   --color-hohc-blue-500: #647da6;
   --color-hohc-blue-600: #3e6e92;
   --color-hohc-blue-700: #0c3374;
+  --color-hohc-blue-800: #415f90;
 
   --color-hohc-yellow-100: #ffffe2;
-  --color-hohc-yellow-200: #FFFCF3;
+  --color-hohc-yellow-200: #fffcf3;
 
   --color-hohc-grey-100: #b9bbbd;
   --color-hohc-grey-200: #F2F3F7;
   --color-hohc-grey-300: #D5D4DF;
 
   --font-hohc-kanit: "Kanit", sans-serif;
+
+  --text-huge: 13rem;
 }
 
 @theme inline {

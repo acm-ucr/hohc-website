@@ -4,27 +4,69 @@ import * as React from "react"
 import {
   DayPicker,
   getDefaultClassNames,
-  type DayButton,
-  type Locale,
 } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
 
+interface GoogleCalendarEvent {
+  startDate: {
+    date: string;
+    dateTime?: string;
+  };
+  title: string;
+  location: string;
+  description: string;
+  
+}
+
+const allEvents = [
+  {
+    startDate: { date: "2026-05-20" }, // Change this to a date in your current view
+    title: "Test Event",
+    location: "Google Meet",
+    description: "It works!"
+  }
+];
+
+const EventDialog: React.FC<GoogleCalendarEvent> = ({ startDate, title, location, description }) => {
+  return (
+    <Dialog>
+      <DialogTrigger className="bg-hohc-blue-700 text-white ">
+        <p>{title}</p>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>{title}</DialogTitle>
+          <p>{startDate.date}</p>
+          <DialogDescription>
+            {location}
+          </DialogDescription>
+        </DialogHeader>
+        <p>{description}</p>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 function Calendar({
   classNames,
   showOutsideDays = true,
   captionLayout = "label",
-  buttonVariant = "ghost",
   locale,
   formatters,
   components,
   ...props
-}: React.ComponentProps<typeof DayPicker> & {
-  buttonVariant?: React.ComponentProps<typeof Button>["variant"]
-}) {
+}: React.ComponentProps<typeof DayPicker>) {
   const defaultClassNames = getDefaultClassNames()
 
   return (
@@ -49,12 +91,12 @@ function Calendar({
           defaultClassNames.nav
         ),
         button_previous: cn(
-          buttonVariants({ variant: buttonVariant }),
+          buttonVariants({ variant: "ghost" }),
           "p-0 select-none aria-disabled:opacity-50",
           defaultClassNames.button_previous
         ),
         button_next: cn(
-          buttonVariants({ variant: buttonVariant }),
+          buttonVariants({ variant: "ghost" }),
           "p-0 select-none aria-disabled:opacity-50",
           defaultClassNames.button_next
         ),
@@ -84,11 +126,11 @@ function Calendar({
           defaultClassNames.week_number
         ),
         day: cn(
-          "group/day relative aspect-square border-1 border-hohc-grey-300 h-24 w-24 text-center select-none ",
+          "group/day relative aspect-square border-1 flex justify-end px-2 py-1 items-start border-hohc-grey-300 h-24 w-24 text-center select-none ",
           defaultClassNames.day
         ),
         today: cn(
-          " bg-muted text-foreground",
+          "bg-hohc-blue-700 text-white",
           defaultClassNames.today
         ),
         outside: cn(
@@ -130,9 +172,6 @@ function Calendar({
             <ChevronDownIcon className={cn("size-4", className)} {...props} />
           )
         },
-        DayButton: ({ ...props }) => (
-          <CalendarDayButton locale={locale} {...props} />
-        ),
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>
@@ -142,6 +181,34 @@ function Calendar({
             </td>
           )
         },
+        Day: (props) => {
+    const { date, displayMonth } = props.day;
+    
+    // Check if day is from a different month
+    const isOutside = date.getMonth() !== displayMonth.getMonth();
+
+    // SIMPLE FILTER: Match the date string
+    // Assumes allEvents is available in your scope
+    const dayEvents = allEvents.filter((e) => e.startDate.date === date.toISOString().split('T')[0]);
+
+    return (
+      <div 
+        className={cn(
+          "relative h-24 w-24 border-t border-r border-hohc-grey-300 p-2",
+          isOutside && "bg-hohc-grey-200 opacity-50"
+        )}
+      >
+        <span className="block text-right text-xs font-bold">{date.getDate()}</span>
+        
+        <div className="flex flex-col gap-1">
+          {dayEvents.map((event, i) => (
+            <EventDialog key={i} {...event} />
+          ))}
+        </div>
+      </div>
+    );
+
+        },
         ...components,
       }}
       {...props}
@@ -149,35 +216,6 @@ function Calendar({
   )
 }
 
-function CalendarDayButton({
-  className,
-  day,
-  modifiers,
-  locale,
-  ...props
-}: React.ComponentProps<typeof DayButton> & { locale?: Partial<Locale> }) {
-  const defaultClassNames = getDefaultClassNames()
 
-  const ref = React.useRef<HTMLButtonElement>(null)
-  React.useEffect(() => {
-    if (modifiers.focused) ref.current?.focus()
-  }, [modifiers.focused])
 
-  return (
-    <Button
-      variant="ghost"
-      data-day={day.date.toLocaleDateString(locale?.code)}
-      data-selected-single={
-        modifiers.selected
-      }
-      className={cn(
-        "relative isolate z-10 flex h-full w-full flex-col gap-1 p-1 justify-start items-end leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-[3px] group-data-[focused=true]/day:ring-ring/50 data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-end=true]:bg-hohc-blue-700 data-[range-end=true]:text-primary-foreground data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) data-[range-start=true]:bg-hohc-blue-700 data-[range-start=true]:text-primary-foreground data-[selected-single=true]:bg-hohc-blue-700 data-[selected-single=true]:text-primary-foreground dark:hover:text-foreground [&>span]:text-xs [&>span]:opacity-70",
-        defaultClassNames.day,
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-export { Calendar, CalendarDayButton }
+export { Calendar }
