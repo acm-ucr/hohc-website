@@ -72,8 +72,8 @@ const CalendarDay = ({ dayNum, events, isOutside,isToday }: {
   return (
     <div 
       className={cn(
-        "relative h-24 w-24 border-t border-r border-hohc-grey-300 p-2",
-        isOutside && "bg-hohc-grey-200 opacity-50",
+        "relative h-24 w-24 border border-hohc-grey-300 p-2",
+        isOutside && "bg-hohc-grey-200 text-muted-foreground",
         isToday && "bg-hohc-blue-700 text-white"
       )}
     >
@@ -146,16 +146,12 @@ function Calendar({
           defaultClassNames.weekday
         ),
         week: cn("flex w-full h-full", defaultClassNames.week),
-        week_number_header: cn(
-          "w-(--cell-size) select-none",
-          defaultClassNames.week_number_header
-        ),
         week_number: cn(
           "text-muted-foreground select-none",
           defaultClassNames.week_number
         ),
         day: cn(
-          "group/day relative aspect-square border-1 flex justify-end px-2 py-1 items-start border-hohc-grey-300 h-24 w-24 text-center select-none ",
+          "group/day relative aspect-square flex justify-end px-2 py-1 items-start h-24 w-24 text-center select-none ",
           defaultClassNames.day
         ),
         today: cn(

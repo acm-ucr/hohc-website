@@ -12,13 +12,13 @@ export function CalendarDemo() {
 
   return (
     <div className="flex items-center justify-center py-10">
-      <div className="absolute left-36 top-36 z-10 size-35">
+      <div className="absolute left-36 top-85 z-10 size-35">
         <Image src={Scissor} alt="Scissor" className="object-cover" />
       </div>
-      <div className="absolute left-36  top-140 z-10 size-35">
+      <div className="absolute left-36  top-195 z-10 size-35">
         <Image src={Scissor} alt="Scissor" className="object-cover" />
       </div>
-      <div className="absolute right-38 top-34 z-10 ">
+      <div className="absolute right-38 top-80 z-10 ">
         <Image src={PillBottle} alt="Pill Bottle" className="size-42 object-contain" />
       </div>
       <div className="bg-hohc-blue-700/78 px-14 pt-18 pb-12">
