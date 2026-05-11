@@ -11,7 +11,7 @@ const Landing = () => {
           className="h-auto w-full object-cover"
         />
         <div className="absolute inset-0 h-1/2 bg-gradient-to-b from-white to-transparent" />
-        <p className="text-hohc-blue-700 font-hohc-kanit absolute top-24 text-center text-8xl font-bold whitespace-nowrap drop-shadow-[2px_4px_2px_rgba(255,255,255,0.8)]">
+        <p className="text-hohc-blue-700 font-hohc-kanit absolute text-center top-16 text-4xl md:top-20 md:text-6xl xl:top-24 xl:text-8xl font-bold whitespace-nowrap drop-shadow-[2px_4px_2px_rgba(255,255,255,0.8)]">
           Hands on Health Care
         </p>
       </div>
