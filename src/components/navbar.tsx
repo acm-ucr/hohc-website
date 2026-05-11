@@ -5,7 +5,7 @@ import HOHCLogo from "@/public/hohc-logo.svg";
 import { navbarLinks } from "@/data/navbarLinks";
 import Image from "next/image";
 import Link from "next/link";
-import { TfiMenuAlt, TfiClose } from "react-icons/tfi";
+import { TfiMenuAlt, TfiAngleUp } from "react-icons/tfi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,15 +30,10 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-
           <div className="mr-2 text-3xl text-white md:hidden">
             <TfiMenuAlt
               onClick={handleClick}
               className={`cursor-pointer ${isOpen ? "hidden" : "block"}`}
-            />
-            <TfiClose
-              onClick={closeMenu}
-              className={`cursor-pointer ${isOpen ? "block" : "hidden"}`}
             />
           </div>
         </div>
@@ -58,6 +53,13 @@ const Navbar = () => {
             {name}
           </Link>
         ))}
+        <button
+          onClick={closeMenu}
+          className="mt-2 cursor-pointer text-3xl text-white"
+          aria-label="Close Menu"
+        >
+          <TfiAngleUp />
+        </button>
       </div>
     </div>
   );
