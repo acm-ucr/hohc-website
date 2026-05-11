@@ -18,11 +18,11 @@ import {
 } from "@/components/ui/dialog"
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
 
+import CalendarCard from "@/public/events/CalendarCard.svg";
+import Image from "next/image";
+
 interface GoogleCalendarEvent {
-  startDate: {
-    date: string;
-    dateTime?: string;
-  };
+  date: string;
   title: string;
   location: string;
   description: string;
@@ -31,32 +31,61 @@ interface GoogleCalendarEvent {
 
 const allEvents = [
   {
-    startDate: { date: "2026-05-20" }, // Change this to a date in your current view
+    date: "2026-05-20",
     title: "Test Event",
     location: "Google Meet",
     description: "It works!"
   }
 ];
 
-const EventDialog: React.FC<GoogleCalendarEvent> = ({ startDate, title, location, description }) => {
+const EventDialog: React.FC<GoogleCalendarEvent> = ({ date, title, location, description }) => {
   return (
     <Dialog>
-      <DialogTrigger className="bg-hohc-blue-700 text-white ">
+      <DialogTrigger className="bg-hohc-blue-700 font-hohc-kanit text-white text-xs rounded-md p-1">
         <p>{title}</p>
       </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-          <p>{startDate.date}</p>
-          <DialogDescription>
-            {location}
+      <DialogContent className="border-none bg-transparent">
+          <Image
+            src={CalendarCard}
+            alt="Event Card"
+            className="h-full w-full"
+          />
+        <DialogHeader className="absolute flex flex-col w-full font-hohc-kanit top-0 left-0 gap-8 px-10 py-12">
+          <DialogTitle className="text-hohc-blue-700/78 text-xl">{title}</DialogTitle>
+          <DialogDescription className="text-hohc-blue-600/78 text-xs flex flex-col gap-8">
+            <p>Date: {date}</p>
+            <p>Location: {location}</p>
+            <p className="pt-4">Description: {description}</p>
           </DialogDescription>
         </DialogHeader>
-        <p>{description}</p>
       </DialogContent>
     </Dialog>
   );
 }
+
+const CalendarDay = ({ dayNum, events, isOutside,isToday }: { 
+  dayNum: number, 
+  events: typeof allEvents, 
+  isOutside: boolean,
+  isToday: boolean,
+}) => {
+  return (
+    <div 
+      className={cn(
+        "relative h-24 w-24 border-t border-r border-hohc-grey-300 p-2",
+        isOutside && "bg-hohc-grey-200 opacity-50",
+        isToday && "bg-hohc-blue-700 text-white"
+      )}
+    >
+      <span className="block text-right font-hohc-kanit text-sm">{dayNum}</span>
+      <div className="flex flex-col pt-1 gap-1">
+        {events.map((event, i) => (
+          <EventDialog key={i} {...event} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 function Calendar({
   classNames,
@@ -182,32 +211,26 @@ function Calendar({
           )
         },
         Day: (props) => {
-    const { date, displayMonth } = props.day;
-    
-    // Check if day is from a different month
-    const isOutside = date.getMonth() !== displayMonth.getMonth();
+      // Logic lives here, not in the component itself
+      const { date, displayMonth } = props.day;
+      const isOutside = date.getMonth() !== displayMonth.getMonth();
+      const dateString = date.toISOString().split('T')[0];
+      const dayEvents = allEvents.filter((e) => e.date === dateString);
+      const today = new Date();
+      const isToday = 
+        date.getDate() === today.getDate() &&
+        date.getMonth() === today.getMonth() &&
+        date.getFullYear() === today.getFullYear();
 
-    // SIMPLE FILTER: Match the date string
-    // Assumes allEvents is available in your scope
-    const dayEvents = allEvents.filter((e) => e.startDate.date === date.toISOString().split('T')[0]);
-
-    return (
-      <div 
-        className={cn(
-          "relative h-24 w-24 border-t border-r border-hohc-grey-300 p-2",
-          isOutside && "bg-hohc-grey-200 opacity-50"
-        )}
-      >
-        <span className="block text-right text-xs font-bold">{date.getDate()}</span>
-        
-        <div className="flex flex-col gap-1">
-          {dayEvents.map((event, i) => (
-            <EventDialog key={i} {...event} />
-          ))}
-        </div>
-      </div>
-    );
-
+      // Now CalendarDay "calls in" nothing; it just receives props
+      return (
+        <CalendarDay 
+          dayNum={date.getDate()}
+          events={dayEvents}
+          isOutside={isOutside}
+          isToday={isToday}
+        />
+      );
         },
         ...components,
       }}
