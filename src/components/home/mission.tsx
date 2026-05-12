@@ -7,7 +7,7 @@ import PillIcon from "@/public/pill-icon.svg";
 
 const Mission = () => {
   return (
-    <div className="flex h-100 flex-col">
+    <div className="flex h-auto flex-col md:min-h-screen">
       <Header icon1={CrossIcon} icon2={PillIcon} title="Our Mission" />
 
       <div className="relative">
@@ -19,11 +19,11 @@ const Mission = () => {
         <Image
           src={StarBackground2}
           alt=""
-          className="absolute top-0 right-0 w-1/3 translate-y-1/3 sm:w-1/2 sm:translate-y-2/3 md:w-1/3 md:translate-y-1/3"
+          className="absolute top-0 right-0 w-1/3 translate-y-1/3 sm:w-1/2 sm:translate-y-1/2 md:w-1/3 md:translate-y-1/3"
         />
       </div>
-      <div className="flex items-center justify-center px-4 py-12 sm:py-16">
-        <div className="flex w-6/7 flex-col items-center p-2 px-8 py-4 text-center text-2xl font-semibold sm:text-3xl md:text-4xl">
+      <div className="flex items-center justify-center px-4">
+        <div className="font-hohc-kanit w-full max-w-4xl items-center text-center text-2xl font-semibold sm:text-3xl md:text-4xl">
           To connect UCR undergraduate students interested in the healthcare
           field to various hands-on opportunities and help them explore
           different careers within healthcare!
