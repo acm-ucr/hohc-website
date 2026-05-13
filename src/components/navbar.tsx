@@ -13,19 +13,24 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="relative z-50">
+    <div className="font-hohc-kanit relative z-50">
       <div className="border-hohc-blue-600 bg-hohc-blue-700 flex h-25 w-full border-b-6">
         <div className="flex w-full items-center justify-between p-4">
           <div className="flex items-center">
-            <Link href="/" onClick={closeMenu}>
-              <Image src={HOHCLogo} alt="HOHC Logo" className="size-18" />
+            <Link href="/" onClick={closeMenu} className="shrink-0">
+              <Image
+                src={HOHCLogo}
+                alt="HOHC Logo"
+                className="size-15 md:size-18"
+              />
             </Link>
-            <p className="font-hohc-kanit ml-5 text-4xl text-white">HOHC</p>
+            <p className="font-hohc-kanit ml-3 text-3xl whitespace-nowrap text-white md:ml-5 md:text-4xl">
+              HOHC
+            </p>
           </div>
-
           <div className="mt-1 mr-7 hidden w-full flex-row justify-end gap-7 text-2xl text-white md:flex">
             {navbarLinks.map(({ link, name }) => (
-              <Link key={link} href={link}>
+              <Link key={link} href={link} className="whitespace-nowrap">
                 {name}
               </Link>
             ))}
@@ -33,7 +38,7 @@ const Navbar = () => {
           <div className="mr-2 text-3xl text-white md:hidden">
             <TfiMenuAlt
               onClick={handleClick}
-              className={`cursor-pointer ${isOpen ? "hidden" : "block"}`}
+              className={`size-8 cursor-pointer ${isOpen ? "hidden" : "block"}`}
             />
           </div>
         </div>
