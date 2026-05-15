@@ -1,5 +1,5 @@
 import Abhishta from "@/public/board/abhishta.webp";
-import Anton from "@/public/board/abhishta.webp";
+import Anton from "@/public/board/anton.webp";
 import Grace from "@/public/board/grace.webp";
 import Jeevan from "@/public/board/jeevan.webp";
 import Likhitha from "@/public/board/likhitha.webp";
@@ -26,7 +26,7 @@ const board = [
         image: Jeevan,
       },
       {
-        name: "Sneha",
+        name: "Sneha Ahuja",
         position: "Secretary",
         image: Sneha,
       },
