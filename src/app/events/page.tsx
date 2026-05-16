@@ -2,7 +2,7 @@ import Header from "@/components/header";
 import HeartIcon from "@/public/heart-icon.svg";
 import CrossIcon from "@/public/cross-icon.svg";
 
-import CalendarDemo from "@/components/events/calendar";
+import CalendarDemo from "@/components/events/calendarCall";
 const Page = () => {
   return (
     <div>

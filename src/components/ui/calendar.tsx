@@ -22,27 +22,17 @@ import CalendarCard from "@/public/events/CalendarCard.svg";
 import Image from "next/image";
 
 interface GoogleCalendarEvent {
-  date: string;
-  title: string;
-  location: string;
-  description: string;
-  
+  date: string
+  title: string
+  location?: string
+  description?: string
 }
-
-const allEvents = [
-  {
-    date: "2026-05-20",
-    title: "Test Event",
-    location: "Google Meet",
-    description: "It works!"
-  }
-];
 
 const EventDialog: React.FC<GoogleCalendarEvent> = ({ date, title, location, description }) => {
   return (
     <Dialog>
       <DialogTrigger className="bg-hohc-blue-700 font-hohc-kanit text-white text-xs rounded-md p-1">
-        <p>{title}</p>
+        <p  className="truncate whitespace-nowrap overflow-hidden">{title}</p>
       </DialogTrigger>
       <DialogContent className="border-none bg-transparent">
           <Image
@@ -53,9 +43,14 @@ const EventDialog: React.FC<GoogleCalendarEvent> = ({ date, title, location, des
         <DialogHeader className="absolute flex flex-col w-full font-hohc-kanit top-0 left-0 gap-8 px-10 py-12">
           <DialogTitle className="text-hohc-blue-700/78 text-xl">{title}</DialogTitle>
           <DialogDescription className="text-hohc-blue-600/78 text-xs flex flex-col gap-8">
-            <p>Date: {date}</p>
-            <p>Location: {location}</p>
-            <p className="pt-4">Description: {description}</p>
+            <p>{new Date(date).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
+            </p>
+            <p>{location}</p>
+            <p className="pt-4">{description}</p>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
@@ -65,19 +60,19 @@ const EventDialog: React.FC<GoogleCalendarEvent> = ({ date, title, location, des
 
 const CalendarDay = ({ dayNum, events, isOutside,isToday }: { 
   dayNum: number, 
-  events: typeof allEvents, 
+  events: GoogleCalendarEvent[],
   isOutside: boolean,
   isToday: boolean,
 }) => {
   return (
     <div 
       className={cn(
-        "relative h-24 w-24 border border-hohc-grey-300 p-2",
+        "relative h-22 w-22 border border-hohc-grey-300 px-1 overflow-y-scroll hide-scrollbar",
         isOutside && "bg-hohc-grey-200 text-muted-foreground",
         isToday && "bg-hohc-blue-700 text-white"
       )}
     >
-      <span className="block text-right font-hohc-kanit text-sm">{dayNum}</span>
+      <span className="block text-right font-hohc-kanit font-thin text-lg">{dayNum}</span>
       <div className="flex flex-col pt-1 gap-1">
         {events.map((event, i) => (
           <EventDialog key={i} {...event} />
@@ -88,6 +83,7 @@ const CalendarDay = ({ dayNum, events, isOutside,isToday }: {
 };
 
 function Calendar({
+  events = [],
   classNames,
   showOutsideDays = true,
   captionLayout = "label",
@@ -95,7 +91,7 @@ function Calendar({
   formatters,
   components,
   ...props
-}: React.ComponentProps<typeof DayPicker>) {
+}: React.ComponentProps<typeof DayPicker> & { events?: GoogleCalendarEvent[] }) {
   const defaultClassNames = getDefaultClassNames()
 
   return (
@@ -150,14 +146,6 @@ function Calendar({
           "text-muted-foreground select-none",
           defaultClassNames.week_number
         ),
-        day: cn(
-          "group/day relative aspect-square flex justify-end px-2 py-1 items-start h-24 w-24 text-center select-none ",
-          defaultClassNames.day
-        ),
-        today: cn(
-          "bg-hohc-blue-700 text-white",
-          defaultClassNames.today
-        ),
         outside: cn(
           "text-muted-foreground bg-hohc-grey-200 aria-selected:text-muted-foreground",
           defaultClassNames.outside
@@ -168,6 +156,7 @@ function Calendar({
         ),
         hidden: cn("invisible", defaultClassNames.hidden),
         ...classNames,
+        
       }}
       components={{
         Root: ({ className, rootRef, ...props }) => {
@@ -207,26 +196,25 @@ function Calendar({
           )
         },
         Day: (props) => {
-      // Logic lives here, not in the component itself
-      const { date, displayMonth } = props.day;
-      const isOutside = date.getMonth() !== displayMonth.getMonth();
-      const dateString = date.toISOString().split('T')[0];
-      const dayEvents = allEvents.filter((e) => e.date === dateString);
-      const today = new Date();
-      const isToday = 
-        date.getDate() === today.getDate() &&
-        date.getMonth() === today.getMonth() &&
-        date.getFullYear() === today.getFullYear();
 
-      // Now CalendarDay "calls in" nothing; it just receives props
-      return (
-        <CalendarDay 
-          dayNum={date.getDate()}
-          events={dayEvents}
-          isOutside={isOutside}
-          isToday={isToday}
-        />
-      );
+          const { date, displayMonth } = props.day;
+          const isOutside = date.getMonth() !== displayMonth.getMonth();
+          const dateString = date.toISOString().split('T')[0];
+          const dayEvents = events.filter((e) => e.date === dateString);
+          const today = new Date();
+          const isToday = 
+            date.getDate() === today.getDate() &&
+            date.getMonth() === today.getMonth() &&
+            date.getFullYear() === today.getFullYear();
+
+          return (
+            <CalendarDay 
+              dayNum={date.getDate()}
+              events={dayEvents}
+              isOutside={isOutside}
+              isToday={isToday}
+            />
+          );
         },
         ...components,
       }}
