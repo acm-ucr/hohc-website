@@ -21,7 +21,7 @@ const JoinWidget = () => {
         />
       </div>
       <div className="bg-hohc-blue-50 rounded-3xl p-10">
-        <h2 className="text-hohc-blue-700 text-font-hohc-kanit mb-8 text-4xl font-bold">
+        <h2 className="text-hohc-blue-700 text-font-hohc-kanit mb-8 text-7xl font-bold">
           How to Join
         </h2>
         <Socials />
