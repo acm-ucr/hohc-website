@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
 
-const followUs = () => {
+const FollowUs = () => {
   return (
     <div>
       <div className="mb-60 flex items-center justify-center gap-48">
@@ -33,4 +33,4 @@ const followUs = () => {
   );
 };
 
-export default followUs;
+export default FollowUs;
