@@ -1,15 +1,14 @@
 import Landing from "../components/home/landing";
 import Mission from "@/components/home/mission";
-import FollowUs from "../components/home/followUs";
 import AboutUs from "@/components/aboutus";
-
+import JoinWidget from "@/components/home/joinWidget";
 const Home = () => {
   return (
     <div>
       <Landing />
       <Mission />
       <AboutUs />
-      <FollowUs />
+      <JoinWidget />
     </div>
   );
 };
