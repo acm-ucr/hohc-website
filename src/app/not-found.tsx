@@ -48,9 +48,7 @@ const NotFound = () => {
           className="h-full w-full scale-200 -rotate-5 object-contain opacity-5 transition-transform"
         />
       </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 md:mt-4 md:h-auto md:translate-x-3 md:translate-y-1 md:justify-start md:px-10 lg:mt-6 lg:translate-x-5 lg:px-0">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 md:px-10 lg:px-0">
         <p className="font-hohc-kanit lg:text-huge text-center text-8xl leading-tight md:text-9xl">
           404
         </p>
