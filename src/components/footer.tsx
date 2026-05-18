@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="bg-hohc-blue-700 border-hohc-blue-600 relative border-t-[6px] px-5 py-3 sm:px-5 md:px-8">
+    <div className="bg-hohc-blue-700 border-hohc-blue-600 relative border-t-[6px] px-5 py-3 md:px-8">
       <div className="flex items-center gap-3 sm:gap-1 md:gap-2">
         <Link href="/">
           <Image
@@ -12,7 +12,7 @@ const Footer = () => {
             alt="HOHC Logo"
             width={32}
             height={32}
-            className="h-full w-full sm:h-12 sm:w-12 md:h-13 md:w-13"
+            className="h-10 w-10 sm:h-12 sm:w-12 md:h-13 md:w-13"
             priority
           />
         </Link>
