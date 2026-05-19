@@ -4,11 +4,12 @@ import Image from "next/image";
 const AboutUs = () => {
   return (
     <div className="relative mt-50 w-full">
-      <div className="absolute top-[6%] mt-15 flex flex-col gap-5">
-        <div className="text-hohc-blue-700 ml-15 text-7xl font-bold">
+      <div className="absolute top-[6%] mt-3 md:mt-7 lg:mt-15 flex flex-col gap-3">
+        <div className="text-hohc-blue-700 ml-5 md:ml-10 lg:ml-15 text-xl md:text-5xl lg:text-7xl font-bold">
           <p>About Us</p>
         </div>
-        <div className="mx-25 flex-col gap-10 text-4xl">
+        <div className="mx-10 md:mx-20 lg:mx-25 flex-col gap-10 text-xl md:text-2xl lg:text-4xl">
+
           <p>
             Hands On Health Care (HOHC) aims to connect pre-health undergraduate
             students at UCR with opportunities and programs for hands-on
@@ -30,8 +31,12 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <Image src={aubg} alt="HOHC Logo" className="z-10 w-full" />
+      <Image src={aubg} alt="Light blue wave" className="z-10 w-full" />
+      <div className="-mt-110 md:-mt-90 md:hidden">
+        <Image src={aubg} alt="Light blue wave" className="z-10 w-full" />
+      </div>
     </div>
+    
   );
 };
 
