@@ -20,8 +20,14 @@ const Header = ({ icon1, icon2, title, subtitle }: HeaderProps) => {
       />
 
       <div className="font-hohc-kanit flex flex-col items-center gap-1 md:gap-2">
-        <p className={`${textSize} text-hohc-blue-600 text-center font-bold`}>{title}</p>
-        <p className={`text-hohc-blue-400 text-center text-xl sm:text-2xl md:text-4xl`}>{subtitle}</p>
+        <p className={`${textSize} text-hohc-blue-600 text-center font-bold`}>
+          {title}
+        </p>
+        <p
+          className={`text-hohc-blue-400 text-center text-xl sm:text-2xl md:text-4xl`}
+        >
+          {subtitle}
+        </p>
       </div>
 
       <Image
