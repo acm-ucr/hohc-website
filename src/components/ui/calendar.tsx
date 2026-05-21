@@ -28,10 +28,14 @@ interface GoogleCalendarEvent {
   description?: string
 }
 
-const EventDialog: React.FC<GoogleCalendarEvent> = ({ date, title, location, description }) => {
+interface EventDialogProps extends GoogleCalendarEvent {
+  isToday: boolean
+}
+
+const EventDialog: React.FC<EventDialogProps> = ({ date, title, location, description, isToday }) => {
   return (
     <Dialog>
-      <DialogTrigger className="bg-hohc-blue-700 font-hohc-kanit text-white text-xs rounded-md p-1">
+      <DialogTrigger className={cn(" font-hohc-kanit text-white text-xs rounded-md p-1", isToday ? "bg-hohc-blue-500" : "bg-hohc-blue-700")}>
         <p  className="truncate whitespace-nowrap overflow-hidden">{title}</p>
       </DialogTrigger>
       <DialogContent className="border-none bg-transparent">
@@ -67,15 +71,15 @@ const CalendarDay = ({ dayNum, events, isOutside,isToday }: {
   return (
     <div 
       className={cn(
-        "relative h-22 w-22 border border-hohc-grey-300 px-1 overflow-y-scroll hide-scrollbar",
+        "relative h-24 w-24 border border-hohc-grey-300 px-1 overflow-y-scroll hide-scrollbar",
         isOutside && "bg-hohc-grey-200 text-muted-foreground",
         isToday && "bg-hohc-blue-700 text-white"
       )}
     >
-      <span className="block text-right font-hohc-kanit font-thin text-lg">{dayNum}</span>
-      <div className="flex flex-col pt-1 gap-1">
+      <span className=" block text-right font-hohc-kanit font-thin text-lg">{dayNum}</span>
+      <div className="flex flex-col justify-self-center pt-1 gap-1 w-7/8">
         {events.map((event, i) => (
-          <EventDialog key={i} {...event} />
+          <EventDialog key={i} {...event} isToday={isToday} />
         ))}
       </div>
     </div>
@@ -112,7 +116,7 @@ function Calendar({
         ),
         month: cn("flex w-full flex-col gap-4", defaultClassNames.month),
         nav: cn(
-          "absolute inset-x-0 top-16 pr-14 flex w-full items-center justify-end gap-12",
+          "absolute inset-x-0 top-16 pr-22 flex w-full items-center justify-end gap-12",
           defaultClassNames.nav
         ),
         button_previous: cn(
@@ -133,7 +137,7 @@ function Calendar({
           "font-black select-none ",
           captionLayout === "label"
             ? "text-sm"
-            : "flex items-center gap-1 font-hohc-kanit text-hohc-blue-700 text-4xl",
+            : "flex items-center gap-1 font-hohc-kanit text-hohc-blue-700 text-5xl",
           defaultClassNames.caption_label
         ),
         weekdays: cn("flex", defaultClassNames.weekdays),

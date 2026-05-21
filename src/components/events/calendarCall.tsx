@@ -5,7 +5,11 @@ import * as React from "react"
 import { Calendar } from "@/components/ui/calendar"
 import { useQuery } from "@tanstack/react-query";
 import Scissor from "@/public/events/Scissors.svg"
-import PillBottle from "@/public/events/PillBottle.svg"
+import PillBottle from "@/public/events/Pill.svg"
+import ScissorNail from "@/public/events/ScissorNail.svg"
+import GauzeRoll from "@/public/events/GauzeRoll.svg"
+import Props from "@/public/events/Props.svg"
+import Propcropped from "@/public/events/Prop-cropped.svg"
 import Image from "next/image"
 
 interface GoogleCalendarEvent {
@@ -77,17 +81,23 @@ export function CalendarDemo() {
 })
 
   return (
-    <div className="flex items-center justify-center py-10">
-      <div className="absolute left-36 top-85 z-10 size-35">
+    <div className="flex flex-col items-center justify-center py-10">
+      <div className="absolute left-112 top-85 z-10 size-35">
         <Image src={Scissor} alt="Scissor" className="object-cover" />
       </div>
-      <div className="absolute left-36  top-195 z-10 size-35">
+      <div className="absolute left-112 top-195 z-10 size-35">
         <Image src={Scissor} alt="Scissor" className="object-cover" />
       </div>
-      <div className="absolute right-38 top-80 z-10 ">
+      <div className="absolute left-125 top-120 z-10 size-25">
+        <Image src={ScissorNail} alt="" className="object-cover" />
+      </div>
+      <div className="absolute right-115 top-80 z-10 ">
         <Image src={PillBottle} alt="Pill Bottle" className="size-42 object-contain" />
       </div>
-      <div className="bg-hohc-blue-700/78 px-14 pt-18 pb-12">
+      <div className="absolute right-68 top-250 z-10 ">
+        <Image src={GauzeRoll} alt="Gauze Roll" className="size-120 object-contain" />
+      </div>
+      <div className="bg-hohc-blue-700/78 px-16 pt-18 pb-12 border-black border-b-6">
        {isLoading ? (
           <p className="text-white font-hohc-kanit">
             Loading...
@@ -101,6 +111,10 @@ export function CalendarDemo() {
           captionLayout="dropdown"
           events ={events}
         />)}
+      </div>
+      <div className="relative w-full max-w-4xl bg-hohc-blue-900 h-8" />
+      <div className="relative w-full max-w-lg">
+        <Image src={Props} alt="" className="w-full h-full" />
       </div>
     </div>
   )
