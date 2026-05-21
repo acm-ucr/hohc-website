@@ -31,7 +31,7 @@ const AboutUs = () => {
         </div>
       </div>
       <Image src={aubg} alt="Light blue wave" className="z-10 w-full" />
-      <div className="-z-20 -translate-y-[10%] sm:-mt-90 md:hidden">
+      <div className="-z-20 -translate-y-[18%] sm:-mt-90 md:hidden">
         <Image src={aubg} alt="Light blue wave" className="z-10 w-full" />
       </div>
     </div>
