@@ -160,3 +160,28 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.hide-scrollbar-bg {
+  scrollbar-gutter: auto; 
+}
+
+
+.hide-scrollbar-bg::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+.hide-scrollbar-bg::-webkit-scrollbar-track {
+  background: transparent; 
+  border: none;
+}
+
+.hide-scrollbar-bg::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.hide-scrollbar-bg::-webkit-scrollbar-thumb {
+  background-color: rgba(12, 51, 116, 0.6);
+  border-radius: 999px;
+  border: none;
+}

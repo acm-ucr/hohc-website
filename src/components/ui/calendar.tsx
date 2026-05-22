@@ -7,7 +7,6 @@ import {
 } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
 import {
   Dialog,
   DialogTrigger,
@@ -18,11 +17,14 @@ import {
 } from "@/components/ui/dialog"
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
 
+import { motion } from "motion/react"
+
 import CalendarCard from "@/public/events/CalendarCard.svg";
 import Image from "next/image";
 
 interface GoogleCalendarEvent {
   date: string
+  time?: string
   title: string
   location?: string
   description?: string
@@ -32,29 +34,31 @@ interface EventDialogProps extends GoogleCalendarEvent {
   isToday: boolean
 }
 
-const EventDialog: React.FC<EventDialogProps> = ({ date, title, location, description, isToday }) => {
+const EventDialog: React.FC<EventDialogProps> = ({ date, time, title, location, description, isToday }) => {
   return (
     <Dialog>
-      <DialogTrigger className={cn(" font-hohc-kanit text-white text-xs rounded-md p-1", isToday ? "bg-hohc-blue-500" : "bg-hohc-blue-700")}>
-        <p  className="truncate whitespace-nowrap overflow-hidden">{title}</p>
-      </DialogTrigger>
-      <DialogContent className="border-none bg-transparent">
+      <motion.div className="w-full min-w-0" whileHover={{ scale: 1.02, transition: { duration: 0.3 } }} >
+        <DialogTrigger className={cn("w-full font-hohc-kanit text-white text-xs rounded-md p-1", isToday ? "bg-hohc-blue-500" : "bg-hohc-blue-700")}>
+          <p  className="truncate whitespace-nowrap overflow-hidden">{title}</p>
+        </DialogTrigger>
+      </motion.div>
+      <DialogContent className="border-none bg-transparent ">
           <Image
             src={CalendarCard}
             alt="Event Card"
             className="h-full w-full"
           />
-        <DialogHeader className="absolute flex flex-col w-full font-hohc-kanit top-0 left-0 gap-8 px-10 py-12">
-          <DialogTitle className="text-hohc-blue-700/78 text-xl">{title}</DialogTitle>
-          <DialogDescription className="text-hohc-blue-600/78 text-xs flex flex-col gap-8">
+        <DialogHeader className="absolute flex flex-col w-full font-hohc-kanit top-0 left-0 gap-8 px-10 py-14">
+          <DialogTitle className="text-hohc-blue-700/78 text-2xl">{title}</DialogTitle>
+          <DialogDescription className=" text-hohc-blue-600/78 text-sm flex flex-col gap-8">
             <p>{new Date(date).toLocaleDateString("en-US", {
               month: "long",
               day: "numeric",
               year: "numeric",
-            })}
+            })} at {time}
             </p>
             <p>{location}</p>
-            <p className="pt-4">{description}</p>
+            <p className="max-h-40 pr-2 pt-4 overflow-y-scroll hide-scrollbar-bg">{description}</p>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
@@ -119,16 +123,7 @@ function Calendar({
           "absolute inset-x-0 top-16 pr-22 flex w-full items-center justify-end gap-12",
           defaultClassNames.nav
         ),
-        button_previous: cn(
-          buttonVariants({ variant: "ghost" }),
-          "p-0 select-none aria-disabled:opacity-50",
-          defaultClassNames.button_previous
-        ),
-        button_next: cn(
-          buttonVariants({ variant: "ghost" }),
-          "p-0 select-none aria-disabled:opacity-50",
-          defaultClassNames.button_next
-        ),
+
         month_caption: cn(
           "flex w-full items-center justify-start py-6",
           defaultClassNames.month_caption
@@ -176,13 +171,17 @@ function Calendar({
         Chevron: ({ className, orientation, ...props }) => {
           if (orientation === "left") {
             return (
-              <ChevronLeftIcon className={cn("size-10 text-hohc-blue-700", className)} {...props} />
+              <motion.div whileHover={{ scale: 1.1, transition: { duration: 0.2 } }} whileTap={{ y: 0.7 }} >
+                <ChevronLeftIcon className={cn("size-10 text-hohc-blue-700", className)} {...props} />
+              </motion.div>
             )
           }
 
           if (orientation === "right") {
             return (
-              <ChevronRightIcon className={cn("size-10 text-hohc-blue-700", className)} {...props} />
+              <motion.div whileHover={{ scale: 1.1, transition: { duration: 0.2 } }} whileTap={{ y: 0.7 }} >
+                <ChevronRightIcon className={cn("size-10 text-hohc-blue-700", className)} {...props} />
+              </motion.div>
             )
           }
 
