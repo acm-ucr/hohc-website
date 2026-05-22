@@ -10,25 +10,25 @@ import { motion } from "motion/react";
 const Mission = () => {
   return (
     <div className="flex flex-col sm:h-85 md:h-100">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        viewport={{ once: true }}
-        className="flex justify-center"
-      >
-        <div className="relative inline-block">
-          <Header icon1={CrossIcon} icon2={PillIcon} title="Our Mission" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          viewport={{ once: true }}
+          className="flex justify-center"
+        >
+          <div className="relative inline-block">
+            <Header icon1={CrossIcon} icon2={PillIcon} title="Our Mission" />
 
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.6, ease: "easeInOut", delay: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-hohc-blue-700 absolute left-1/2 mt-2 h-1 w-3/4 origin-center -translate-x-1/2 rounded-full"
-          />
-        </div>
-      </motion.div>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 0.6, ease: "easeInOut", delay: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-hohc-blue-700 absolute left-1/2 mt-2 h-1 w-3/4 origin-center -translate-x-1/2 rounded-full"
+            />
+          </div>
+        </motion.div>
 
       <div className="relative">
         <Image
