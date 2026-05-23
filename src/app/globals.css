@@ -14,14 +14,14 @@
   --color-hohc-blue-600: #3e6e92;
   --color-hohc-blue-700: #0c3374;
   --color-hohc-blue-800: #415f90;
-  --color-hohc-blue-900: #08224C;
+  --color-hohc-blue-900: #08224c;
 
   --color-hohc-yellow-100: #ffffe2;
   --color-hohc-yellow-200: #fffcf3;
 
   --color-hohc-grey-100: #b9bbbd;
-  --color-hohc-grey-200: #F2F3F7;
-  --color-hohc-grey-300: #D5D4DF;
+  --color-hohc-grey-200: #f2f3f7;
+  --color-hohc-grey-300: #d5d4df;
 
   --font-hohc-kanit: "Kanit", sans-serif;
 
@@ -162,9 +162,8 @@
 }
 
 .hide-scrollbar-bg {
-  scrollbar-gutter: auto; 
+  scrollbar-gutter: auto;
 }
-
 
 .hide-scrollbar-bg::-webkit-scrollbar {
   width: 8px;
@@ -172,7 +171,7 @@
 }
 
 .hide-scrollbar-bg::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
   border: none;
 }
 
