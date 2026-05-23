@@ -87,13 +87,13 @@ export function CalendarDemo() {
 })
 
   return (
-    <div className="flex flex-col items-center justify-center py-10">
+    <div className="flex flex-col items-center justify-center py-2 md:py-4 xl:py-6 overflow-hidden">
 
        {isLoading ? (
         ""
         ) : (
       <>
-      <div className="relative bg-hohc-blue-700/78 px-16 pt-18 pb-12 border-black border-b-6">
+      <div className="relative md:bg-hohc-blue-700/78 md:px-12 md:pt-14 md:pb-8 lg:px-15 lg:pt-16 lg:pb-10 xl:px-16 xl:pt-18 xl:pb-12 border-black md:border-b-4 xl:border-b-6">
         <Calendar
           mode="single"
           selected={date}
@@ -102,28 +102,28 @@ export function CalendarDemo() {
           captionLayout="dropdown"
           events ={events}
         />
-        <div className="hidden md:block absolute left-0 top-0 -translate-x-1/5 translate-y-1/5 z-10 size-35">
+        <div className="hidden md:block absolute left-0 top-0 -translate-x-1/5 translate-y-1/5 z-10 size-24 lg:size-28 xl:size-35">
           <Image src={Scissor} alt="Scissor" className="object-cover" />
         </div>
-        <div className="hidden md:block absolute left-0 bottom-0 -translate-x-1/5 -translate-y-9/4 z-10 size-35">
+        <div className="hidden md:block absolute left-0 bottom-0 -translate-x-1/5 -translate-y-9/4 z-10 size-24 lg:size-28 xl:size-35">
           <Image src={Scissor} alt="Scissor" className="object-cover" />
         </div>
-        <div className="hidden md:block absolute left-0 top-0 translate-x-3/5 translate-y-5/3 z-12 ">
-          <Image src={ScissorNail} alt="" className="object-cover size-4/5" />
+        <div className="hidden md:block absolute left-0 top-0 translate-x-1/2 translate-y-7/4 xl:translate-x-3/5 xl:translate-y-5/3 z-12 ">
+          <Image src={ScissorNail} alt="" className="object-cover size-2/5  lg:size-3/5 xl:size-4/5" />
         </div>
-        <div className="hidden md:block absolute left-0 bottom-0 translate-x-3/5 -translate-y-5/4 z-12 ">
-          <Image src={ScissorNail} alt="" className="object-cover size-4/5" />
+        <div className="hidden md:block absolute left-0 bottom-0 translate-x-1/2 -translate-y-3/2 xl:translate-x-3/5 xl:-translate-y-5/4 z-12 ">
+          <Image src={ScissorNail} alt="" className="object-cover size-2/5 lg:size-3/5 xl:size-4/5" />
         </div>
         <div className="hidden md:block absolute right-0 top-0 translate-x-1/8 z-10 ">
-          <Image src={PillBottle} alt="Pill Bottle" className="size-42 object-contain" />
+          <Image src={PillBottle} alt="Pill Bottle" className="size-32 lg:size-38 xl:size-42 object-contain" />
         </div>
 
-        <div className="hidden md:block absolute right-0 bottom-0 z-10 translate-x-3/7 translate-y-3/7">
-          <Image src={GauzeRoll} alt="Gauze Roll" className="size-120 object-contain" />
+        <div className="hidden md:block absolute right-0 bottom-0 z-10 translate-x-3/7 translate-y-2/5 xl:translate-y-3/7">
+          <Image src={GauzeRoll} alt="Gauze Roll" className="size-80 lg:size-100 xl:size-120 object-contain" />
         </div>
       </div>
-      <div className="hidden md:block relative w-full max-w-4xl bg-hohc-blue-900 h-8" />
-      <div className="hidden md:block relative w-full max-w-lg">
+      <div className="hidden md:block relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl bg-hohc-blue-900 h-6 xl:h-8" />
+      <div className="hidden md:block relative w-full max-w-sm xl:max-w-lg">
         <Image src={Props} alt="" className="w-full h-full" />
       </div>
       </>
