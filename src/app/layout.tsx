@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import { Kanit, Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const kanit = Kanit({
   subsets: ["latin"],
