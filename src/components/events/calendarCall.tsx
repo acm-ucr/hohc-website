@@ -79,9 +79,9 @@ export function FullCalendar() {
     },
   });
 
-  const upcomingEvents = events
-    .filter((event) => new Date(`${event.date}T00:00:00`) >= new Date())
-    .slice(0, 3);
+  // const upcomingEvents = events
+  //   .filter((event) => new Date(`${event.date}T00:00:00`) >= new Date())
+  //   .slice(0, 3);
 
   return (
     <div className="flex flex-col items-center justify-center overflow-hidden py-2 md:py-4 xl:py-6">
