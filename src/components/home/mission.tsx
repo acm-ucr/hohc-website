@@ -25,7 +25,7 @@ const Mission = () => {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.6, ease: "easeInOut", delay: 0.5 }}
             viewport={{ once: true }}
-            className="bg-hohc-blue-700 absolute left-1/2 mt-2 h-1 w-3/4 origin-center -translate-x-1/2 rounded-full"
+            className="bg-hohc-blue-700 absolute left-1/2 mt-0.5 h-1 w-1/2 origin-center -translate-x-1/2 rounded-full sm:mt-1 md:mt-2 md:w-3/4"
           />
         </div>
       </motion.div>
@@ -42,7 +42,7 @@ const Mission = () => {
           className="absolute top-0 right-0 w-1/3 translate-y-1/3 sm:w-1/2 sm:translate-y-1/2 md:w-1/3 md:translate-y-1/3"
         />
       </div>
-      <div className="flex items-center justify-center sm:py-20 md:py-16">
+      <div className="flex items-center justify-center py-12 sm:py-16 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
