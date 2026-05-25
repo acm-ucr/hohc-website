@@ -7,21 +7,21 @@ import Image from "next/image";
 
 const JoinWidget = () => {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-6 sm:gap-8 md:gap-10">
       <div className="relative">
         <Image
           src={StarBack}
           alt=""
-          className="absolute top-0 right-0 w-1/3 opacity-80"
+          className="absolute top-0 right-0 w-1/4 opacity-80 sm:w-1/3"
         />
         <Image
           src={StarBack1}
           alt=""
-          className="absolute top-1/3 left-0 w-1/3 translate-y-4/5 opacity-80"
+          className="absolute top-1/3 left-0 w-1/4 translate-y-4/5 opacity-80 sm:w-1/3"
         />
       </div>
-      <div className="bg-hohc-blue-50 rounded-3xl p-10">
-        <h2 className="text-hohc-blue-700 text-font-hohc-kanit mb-8 text-7xl font-bold">
+      <div className="bg-hohc-blue-50 rounded-3xl p-5 sm:p-8 md:p-10">
+        <h2 className="text-hohc-blue-700 text-font-hohc-kanit mb-4 text-center text-3xl font-bold sm:mb-6 sm:text-5xl md:mb-8 md:text-left md:text-7xl">
           How to Join
         </h2>
         <Socials />
@@ -30,7 +30,7 @@ const JoinWidget = () => {
         <Image
           src={StarBack2}
           alt=""
-          className="absolute right-1/5 bottom-0 w-1/3 opacity-80"
+          className="absolute right-1/5 bottom-0 w-1/4 opacity-80 sm:w-1/3"
         />
         <FollowUs />
       </div>
