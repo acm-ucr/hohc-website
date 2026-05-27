@@ -4,7 +4,7 @@ import Background from "@/public/background.svg";
 
 const ApplyNow = () => {
   return (
-    <div className="relative w-full overflow-hidden pb-20 md:pb-24 lg:pb-32">
+    <div className="relative w-full overflow-hidden pb-13 md:pb-18 lg:pb-32">
       <Image
         src={Background}
         alt=""
