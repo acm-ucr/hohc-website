@@ -13,15 +13,15 @@ const Social = ({ title, link, icon }: SocialProps) => {
         <Image
           src={icon}
           alt={title}
-          className="h-10 w-10 sm:h-20 sm:w-20 md:h-30 md:w-30"
+          className="h-8 w-8 sm:h-12 sm:w-12 md:h-20 md:w-20 lg:h-30 lg:w-30"
         />
       </div>
 
       <div className="border-hohc-blue-500 flex flex-col gap-2 rounded-lg sm:gap-3">
-        <div className="pl-1 text-xl font-medium sm:text-2xl md:text-4xl">
+        <div className="pl-1 text-base font-medium sm:text-xl md:text-2xl lg:text-4xl">
           {title}
         </div>
-        <div className="pl-2 text-lg underline sm:text-xl md:text-3xl">
+        <div className="pl-2 break-all text-base underline sm:text-lg md:text-xl lg:text-3xl">
           {link}
         </div>
       </div>
