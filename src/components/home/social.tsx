@@ -21,7 +21,7 @@ const Social = ({ title, link, icon }: SocialProps) => {
         <div className="pl-1 text-base font-medium sm:text-xl md:text-2xl lg:text-4xl">
           {title}
         </div>
-        <div className="pl-2 break-all text-base underline sm:text-lg md:text-xl lg:text-3xl">
+        <div className="pl-2 text-base break-all underline sm:text-lg md:text-xl lg:text-3xl">
           {link}
         </div>
       </div>
