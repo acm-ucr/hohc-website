@@ -135,7 +135,7 @@ export function FullCalendar() {
             </div>
           </div>
           <div className="bg-hohc-blue-900 relative hidden h-6 w-full max-w-2xl md:block lg:max-w-3xl xl:h-8 xl:max-w-4xl" />
-          <div className="relative hidden w-full max-w-sm md:block xl:max-w-lg -translate-y-6 xl:-translate-y-8 -z-5">
+          <div className="relative -z-5 hidden w-full max-w-sm -translate-y-6 md:block xl:max-w-lg xl:-translate-y-8">
             <Image src={Props} alt="" className="h-full w-full" />
           </div>
           <div></div>
