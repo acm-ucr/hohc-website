@@ -98,9 +98,9 @@ const CalendarDay = ({
   isToday: boolean;
 }) => {
   return (
-    <div
+    <td
       className={cn(
-        "border-hohc-grey-300 hide-scrollbar relative h-10 w-10 overflow-y-scroll border px-1 sm:h-12 sm:w-12 md:h-18 md:w-18 lg:h-20 lg:w-20 xl:h-24 xl:w-24",
+        "border-hohc-grey-300 hide-scrollbar relative h-10 w-10 overflow-y-auto border px-1 sm:h-12 sm:w-12 md:h-18 md:w-18 lg:h-20 lg:w-20 xl:h-24 xl:w-24",
         isOutside && "bg-hohc-grey-200 text-muted-foreground",
         isToday && "bg-hohc-blue-700 text-white",
       )}
@@ -113,7 +113,7 @@ const CalendarDay = ({
           <EventDialog key={i} {...event} isToday={isToday} />
         ))}
       </div>
-    </div>
+    </td>
   );
 };
 
