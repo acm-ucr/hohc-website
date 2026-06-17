@@ -1,9 +1,12 @@
+"use client";
+
 import FollowUs from "./followUs";
 import Socials from "./socials";
 import StarBack from "@/public/home/streamline-color_star-1-flat.svg";
 import StarBack1 from "@/public/home/StarBack1.svg";
 import StarBack2 from "@/public/home/Starback2.svg";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 const JoinWidget = () => {
   return (
@@ -21,9 +24,16 @@ const JoinWidget = () => {
         />
       </div>
       <div className="bg-hohc-blue-50 rounded-3xl p-5 sm:p-8 md:p-10">
-        <h2 className="text-hohc-blue-700 text-font-hohc-kanit mb-4 text-center text-2xl font-bold sm:mb-6 sm:text-3xl md:mb-8 md:text-left md:text-5xl lg:text-7xl">
-          How to Join
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-hohc-blue-700 text-font-hohc-kanit mb-4 text-center text-2xl font-bold sm:mb-6 sm:text-3xl md:mb-8 md:text-left md:text-5xl lg:text-7xl">
+            How to Join
+          </h2>
+        </motion.div>
         <Socials />
       </div>
       <div className="relative">
