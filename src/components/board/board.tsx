@@ -1,9 +1,12 @@
+"use client";
+
 import { StaticImageData } from "next/image";
 import BoardCard from "./boardCard";
 import board from "@/data/board";
 import Header from "@/components/header";
 import ShieldIcon from "@/public/shield-icon.svg";
 import HeartIcon from "@/public/heart-icon.svg";
+import { motion } from "motion/react";
 
 interface BoardMember {
   name: string;
@@ -15,6 +18,13 @@ interface BoardSection {
   title?: string;
   members: BoardMember[];
 }
+
+const animation = () => ({
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+  viewport: { once: true, amount: 0.5 },
+});
 
 const Board = () => {
   return (
@@ -35,12 +45,9 @@ const Board = () => {
             )}
             <div className="flex flex-wrap justify-center gap-x-10 gap-y-3 md:gap-x-24 md:gap-y-8">
               {members.map(({ name, position, image }) => (
-                <BoardCard
-                  key={name}
-                  name={name}
-                  position={position}
-                  image={image}
-                />
+                <motion.div key={name} {...animation()}>
+                  <BoardCard name={name} position={position} image={image} />
+                </motion.div>
               ))}
             </div>
           </div>
