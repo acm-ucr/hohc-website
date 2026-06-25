@@ -10,7 +10,7 @@ interface EventProps {
 
 const Event = (props: EventProps) => {
   return (
-    <div className="relative w-1/5">
+    <div className="relative w-full max-w-xs sm:w-1/2 sm:max-w-sm md:w-1/3 md:max-w-none lg:w-1/4 xl:w-1/5">
       <Image
         src={Card}
         alt="Event Card"
@@ -19,11 +19,19 @@ const Event = (props: EventProps) => {
         className="h-full w-full"
       />
 
-      <div className="font-hohc-kanit absolute top-0 left-0 flex w-full flex-col gap-2 p-6">
-        <h2 className="text-hohc-blue-700/75 text-4xl">{props.title}</h2>
-        <p className="text-hohc-blue-500 text-base">{props.date}</p>
-        <p className="text-hohc-blue-500 text-base">{props.location}</p>
-        <p className="text-hohc-blue-500 text-base">{props.description}</p>
+      <div className="font-hohc-kanit absolute top-0 left-0 flex w-full flex-col gap-1 p-3 sm:gap-1.5 sm:p-4 md:gap-2 md:p-5 lg:p-6">
+        <h2 className="text-hohc-blue-700/75 text-2xl sm:text-3xl lg:text-4xl">
+          {props.title}
+        </h2>
+        <p className="text-hohc-blue-500 text-xs sm:text-sm lg:text-base">
+          {props.date}
+        </p>
+        <p className="text-hohc-blue-500 text-xs sm:text-sm lg:text-base">
+          {props.location}
+        </p>
+        <p className="text-hohc-blue-500 text-xs sm:text-sm lg:text-base">
+          {props.description}
+        </p>
       </div>
     </div>
   );
