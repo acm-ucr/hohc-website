@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import LandingImage from "@/public/home/landing-image.webp";
+import { motion } from "motion/react";
 
 const Landing = () => {
   return (
@@ -11,9 +14,17 @@ const Landing = () => {
           className="h-auto w-full object-cover"
         />
         <div className="absolute inset-0 h-1/2 bg-gradient-to-b from-white to-transparent" />
-        <p className="text-hohc-blue-700 font-hohc-kanit absolute top-10 text-center text-2xl font-bold whitespace-nowrap drop-shadow-[1px_2px_1px_rgba(255,255,255,0.8)] sm:top-16 sm:text-4xl md:top-20 md:text-6xl md:drop-shadow-[2px_4px_2px_rgba(255,255,255,0.8)] xl:top-24 xl:text-8xl">
-          Hands on Health Care
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="absolute flex justify-center"
+        >
+          <p className="text-hohc-blue-700 font-hohc-kanit absolute top-10 text-center text-2xl font-bold whitespace-nowrap drop-shadow-[1px_2px_1px_rgba(255,255,255,0.8)] sm:top-16 sm:text-4xl md:top-20 md:text-6xl md:drop-shadow-[2px_4px_2px_rgba(255,255,255,0.8)] xl:top-24 xl:text-8xl">
+            Hands on Health Care
+          </p>
+        </motion.div>
       </div>
     </div>
   );
