@@ -12,8 +12,9 @@ const Socials = () => (
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
         viewport={{ once: true }}
+        key={index}
       >
-        <Social key={index} title={title} link={link} icon={icon} />
+        <Social title={title} link={link} icon={icon} />
       </motion.div>
     ))}
   </div>
