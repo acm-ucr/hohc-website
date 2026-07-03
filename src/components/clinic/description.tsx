@@ -3,7 +3,7 @@ import Board from "@/public/home/landing-image.webp";
 
 const Description = () => {
   return (
-    <div className="flex flex-col-reverse items-center justify-center gap-3 p-3 md:flex-row md:items-start md:justify-between">
+    <div className="flex flex-1 flex-col-reverse items-center justify-center gap-3 p-3 md:flex-row md:items-start md:justify-between">
       <div className="p-3 text-base md:text-2xl lg:text-4xl">
         This program gives students hands-on experience in clinical settings,
         including taking vital signs, interacting with patients, and working
