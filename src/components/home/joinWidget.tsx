@@ -40,7 +40,7 @@ const JoinWidget = () => {
         <Image
           src={StarBack2}
           alt=""
-          className="absolute right-1/5 bottom-0 w-1/4 opacity-80 sm:w-1/3"
+          className="absolute right-1/5 bottom-0 -z-1 w-1/4 opacity-80 sm:w-1/3"
         />
         <FollowUs />
       </div>

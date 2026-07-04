@@ -21,8 +21,11 @@ const FollowUs = () => {
           <p className="text-hohc-blue-300 mb-4 hidden text-sm font-bold sm:mb-6 sm:hidden sm:text-lg md:mb-7 md:block md:text-3xl lg:mb-8 lg:text-5xl">
             @handsonhealthcare_ucr
           </p>
-          <Link href="https://www.instagram.com/handsonhealthcare_ucr/">
-            <p className="bg-hohc-blue-800 rounded-4xl px-4 py-3 text-lg font-medium text-white sm:px-5 sm:text-2xl md:text-3xl lg:px-6 lg:py-4 lg:text-4xl">
+          <Link
+            href="https://www.instagram.com/handsonhealthcare_ucr/"
+            className="bg-hohc-blue-800 rounded-4xl px-4 py-3 shadow-lg transition-all hover:-translate-y-1 hover:shadow-2xl sm:px-5 lg:px-6 lg:py-4"
+          >
+            <p className="text-lg font-medium text-white sm:text-2xl md:text-3xl lg:text-4xl">
               <FaInstagram className="mr-2 inline-block text-3xl sm:mr-3 sm:text-5xl lg:text-7xl" />
               Follow here
             </p>
