@@ -10,13 +10,14 @@ import ScissorNail from "@/public/events/ScissorNail.svg";
 import GauzeRoll from "@/public/events/GauzeRoll.svg";
 import Props from "@/public/events/Props.svg";
 import Image from "next/image";
+import Events from "@/components/events/events";
 
-interface GoogleCalendarEvent {
+export interface GoogleCalendarEvent {
   date: string;
-  time?: string;
+  time: string;
   title: string;
   location: string;
-  description?: string;
+  description: string;
 }
 
 interface GoogleEventProps {
@@ -138,7 +139,7 @@ export function FullCalendar() {
           <div className="relative -z-5 hidden w-full max-w-sm -translate-y-6 md:block xl:max-w-lg xl:-translate-y-8">
             <Image src={Props} alt="" className="h-full w-full" />
           </div>
-          <div></div>
+          <Events events={events} />
         </>
       )}
     </div>

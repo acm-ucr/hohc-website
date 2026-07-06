@@ -10,7 +10,7 @@ interface EventProps {
 
 const Event = (props: EventProps) => {
   return (
-    <div className="relative w-full max-w-xs sm:w-1/2 sm:max-w-sm md:w-1/3 md:max-w-none lg:w-1/4 xl:w-1/5">
+    <div className="relative w-full max-w-xs sm:w-4/5 sm:max-w-sm md:w-1/2 md:max-w-none">
       <Image
         src={Card}
         alt="Event Card"

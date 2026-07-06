@@ -65,14 +65,12 @@ const EventDialog: React.FC<EventDialogProps> = ({
             {title}
           </DialogTitle>
           <DialogDescription className="text-hohc-blue-600/78 flex flex-col gap-2 text-xs md:gap-4 lg:gap-6 xl:gap-8 xl:text-sm">
-            <p>
-              {new Date(date).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}{" "}
-              at {time}
-            </p>
+            {new Date(date).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}{" "}
+            at {time}
             <p className="hide-scrollbar-bg max-h-10 overflow-x-hidden overflow-y-scroll break-words sm:max-h-full sm:overflow-hidden">
               {location}
             </p>
